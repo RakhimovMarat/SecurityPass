@@ -14,6 +14,19 @@ RSpec.describe PassesController, type: :controller do
         expect(assigns(:passes)).to match_array(passes)
       end
     end
-
   end
+
+  describe 'GET #show' do
+    let(:passes) { create :pass }
+
+    subject { get :show, params: { id: pass.id } }
+
+    context 'show pass' do
+      it 'render to show template' do
+        expect(response).to render_template(:show)
+      end
+
+    end
+  end
+
 end
