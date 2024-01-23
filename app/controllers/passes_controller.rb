@@ -3,4 +3,7 @@ class PassesController < ApplicationController
     @passes = Pass.all
   end
 
+  def show
+    @pass = Pass.find(params[:id])
+  end
 end

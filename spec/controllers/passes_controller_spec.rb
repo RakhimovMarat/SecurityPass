@@ -8,7 +8,7 @@ RSpec.describe PassesController, type: :controller do
 
     context 'required output per page' do
       it 'render to index template' do
-        expect(response).to render_template(:index)
+        is_expected.to render_template :index
       end
       it 'instance variable passes includes only passes' do
         expect(assigns(:passes)).to match_array(passes)
@@ -17,13 +17,13 @@ RSpec.describe PassesController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:passes) { create :pass }
+    let(:pass) { create :pass }
 
     subject { get :show, params: { id: pass.id } }
 
     context 'show pass' do
       it 'render to show template' do
-        expect(response).to render_template(:show)
+        is_expected.to render_template :show
       end
 
     end
