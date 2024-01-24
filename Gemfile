@@ -15,6 +15,7 @@ gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'faker'
+gem 'devise'
 
 group :development, :test do
   gem 'database_cleaner'

@@ -4,6 +4,8 @@ RSpec.describe Pass, type: :model do
   it { should validate_presence_of :visitor_firstname }
   it { should validate_presence_of :visitor_lastname }
   it { should validate_presence_of :visit_date}
+  it { should belong_to(:user) }
+  it { should validate_presence_of :user_id }
 
   describe 'Enums' do
     it { is_expected.to define_enum_for(:status).with_values(

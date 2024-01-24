@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe PassesController, type: :controller do
   describe 'GET #index' do
-    let(:passes) { create_list :pass, 3 }
+    let!(:user) { create :user }
+    let(:passes) { create_list :pass, 3, user: user }
 
     before { get :index }
 
@@ -17,7 +18,8 @@ RSpec.describe PassesController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:pass) { create :pass }
+    let!(:user) { create :user }
+    let(:pass) { create :pass, user: user }
 
     subject { get :show, params: { id: pass.id } }
 
