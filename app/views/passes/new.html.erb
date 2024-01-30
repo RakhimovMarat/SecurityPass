@@ -1,0 +1,18 @@
+<h1>Create a pass</h1>
+
+<%= form_with model: @pass, data: { turbo: false } do |f| %>
+	<p>
+		<%= f.label :firstname %> <br />
+		<%= f.text_field :visitor_firstname %>
+	</p>
+
+    <p>
+		<%= f.label :lastname %> <br />
+		<%= f.text_field :visitor_lastname %>
+	</p>
+
+	<p>
+		<%= f.submit 'Create' %>
+	</p>
+
+<% end %>

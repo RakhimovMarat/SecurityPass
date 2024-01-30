@@ -6,5 +6,6 @@ FactoryBot.define do
     visit_date        { Faker::Date.between(from: '2023-01-01', to: '2024-01-01') }
     remark            { Faker::Lorem.sentence(word_count: 10) }
     identity_document { Faker::IDNumber.chilean_id }
+    status            { 'created' }
   end
 end
