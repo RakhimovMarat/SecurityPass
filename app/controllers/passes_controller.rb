@@ -13,8 +13,13 @@ class PassesController < ApplicationController
 
   def create
     @pass = Pass.new(pass_params)
-    @pass.save
-    redirect_to @pass
+    if @pass.save
+      flash[:success] = 'Pass was created'
+      redirect_to @pass
+    else
+      flash.now[:error] = 'Please fill all fields'
+      render action: 'new'
+    end
   end
 
   private
