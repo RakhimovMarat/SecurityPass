@@ -1,0 +1,11 @@
+
+<div>
+  <% @passes.each do |pass| %>
+    <p>
+      <%= pass.visitor_firstname %>
+      <%= pass.visitor_lastname %>
+      <%= pass.visit_date.strftime("%B %d, %Y") %>
+      <%= pass.status %>
+    </p>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 <h1>Create a pass</h1>
 
-<%= form_with model: @pass, data: { turbo: false } do |f| %>
+<%= form_with model: @pass, data: { controller: "flatpickr" } do |f| %>
 	<p>
 		<%= f.label :firstname %> <br />
 		<%= f.text_field :visitor_firstname %>
@@ -13,7 +13,7 @@
 
 	<p>
 		<%= f.label :visit_date %>
- 		<%= f.text_field :visit_date %>
+ 		<%= f.datetime_field :visit_date, class: "visit_date" %>
 	</p>
 
 	<p>
