@@ -1,4 +1,7 @@
 class PassesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :find_pass, only: %i[show edit update]
+
   def index
     @passes = Pass.all
   end
@@ -19,14 +22,12 @@ class PassesController < ApplicationController
   end
 
   def show
-    @pass = Pass.find(params[:id])
   end
 
   def edit
   end
 
   def update
-    @pass = Pass.find(params[:id])
     if @pass.update(pass_params)
       flash[:success] = 'Pass was updated'
       redirect_to @pass
@@ -40,5 +41,9 @@ class PassesController < ApplicationController
 
   def pass_params
     params.require(:pass).permit(:visitor_firstname, :visitor_lastname, :visit_date, :user_id).merge(user_id: current_user.id)
+  end
+
+  def find_pass
+    @pass = Pass.find(params[:id])
   end
 end

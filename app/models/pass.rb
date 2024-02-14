@@ -2,7 +2,7 @@ class Pass < ApplicationRecord
   validates :visitor_firstname, presence: true
   validates :visitor_lastname,  presence: true
   validates :visit_date,        presence: true
-  validates :user_id, presence: true
+  validates :user_id,           presence: true
 
   belongs_to :user
 

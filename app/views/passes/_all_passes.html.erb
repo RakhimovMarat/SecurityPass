@@ -2,6 +2,7 @@
 <div>
   <% @passes.each do |pass| %>
     <p>
+      <%= pass.id %> | 
       <%= pass.visitor_firstname %> | 
       <%= pass.visitor_lastname %> | 
       <%= pass.visit_date.strftime("%B %d, %Y") %> | 
