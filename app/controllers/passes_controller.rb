@@ -3,10 +3,6 @@ class PassesController < ApplicationController
     @passes = Pass.all
   end
 
-  def show
-    @pass = Pass.find(params[:id])
-  end
-
   def new
     @pass = Pass.new
   end
@@ -19,6 +15,24 @@ class PassesController < ApplicationController
     else
       flash.now[:error] = 'Please fill all fields'
       render action: 'new'
+    end
+  end
+
+  def show
+    @pass = Pass.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    @pass = Pass.find(params[:id])
+    if @pass.update(pass_params)
+      flash[:success] = 'Pass was updated'
+      redirect_to @pass
+    else
+      flash.now[:error] = 'Please fill all fields'
+      render action: 'edit'
     end
   end
 

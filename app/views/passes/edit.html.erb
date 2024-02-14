@@ -1,0 +1,23 @@
+<h1>Edit a pass</h1>
+
+<%= form_with model: @pass, data: { controller: "flatpickr" } do |f| %>
+	<p>
+		<%= f.label :firstname %> <br />
+		<%= f.text_field :visitor_firstname %>
+	</p>
+
+    <p>
+		<%= f.label :lastname %> <br />
+		<%= f.text_field :visitor_lastname %>
+	</p>
+
+	<p>
+		<%= f.label :visit_date %>
+ 		<%= f.datetime_field :visit_date, class: "visit_date" %>
+	</p>
+
+	<p>
+		<%= f.submit 'Edit' %>
+	</p>
+
+<% end %>

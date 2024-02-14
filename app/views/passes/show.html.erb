@@ -1,6 +1,9 @@
 <h1>Pass</h1>
 
-<% @pass.each do |pass| %>
-  <%= pass.visitor_firstname %>
-  <%= pass.visitor_lastname %>
-<% end %>
+<p>Name: <%= @pass.visitor_firstname %></p>
+
+<p>Lastname: <%= @pass.visitor_lastname %></p>
+
+<p>Visit date: <%= @pass.visit_date.strftime("%B %d, %Y") %></p>
+
+<p>Status: <%= @pass.status %></p>
