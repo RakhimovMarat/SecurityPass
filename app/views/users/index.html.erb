@@ -1,0 +1,9 @@
+<div>
+  <% @users.each do |user| %>
+    <p>
+      <%= user.username %> | 
+      <%= user.email %> | 
+      <%= user.role.try(:rolename) %> | 
+    </p>
+  <% end %>
+</div>
