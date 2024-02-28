@@ -3,7 +3,8 @@ class PassesController < ApplicationController
   before_action :find_pass, only: %i[show edit update]
 
   def index
-    @passes = Pass.all
+#    @passes = Pass.all
+    @passes = current_user.passes
   end
 
   def new
@@ -13,10 +14,10 @@ class PassesController < ApplicationController
   def create
     @pass = Pass.new(pass_params)
     if @pass.save
-      flash[:success] = 'Pass was created'
+      flash[:success] = 'Пропуск был создан'
       redirect_to @pass
     else
-      flash.now[:error] = 'Please fill all fields'
+      flash.now[:error] = 'Пожалуйста заполните все поля'
       render action: 'new'
     end
   end
@@ -29,10 +30,10 @@ class PassesController < ApplicationController
 
   def update
     if @pass.update(pass_params)
-      flash[:success] = 'Pass was updated'
+      flash[:success] = 'Изменения сохранены'
       redirect_to @pass
     else
-      flash.now[:error] = 'Please fill all fields'
+      flash.now[:error] = 'Пожалуйста заполните все поля'
       render action: 'edit'
     end
   end

@@ -12,10 +12,10 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(role_params)
     if @role.save
-      flash[:success] = 'Role was created'
+      flash[:success] = 'Роль была создана'
       redirect_to @role
     else
-      flash.now[:error] = 'Please fill all fields'
+      flash.now[:error] = 'Пожалуйста заполните все поля'
       render action: 'new'
     end
   end

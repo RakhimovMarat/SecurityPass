@@ -1,23 +1,22 @@
-<h1>Create a pass</h1>
+<h3>Новый пропуск</h3>
 
 <%= form_with model: @pass, data: { controller: "flatpickr" } do |f| %>
-	<p>
-		<%= f.label :firstname %> <br />
-		<%= f.text_field :visitor_firstname %>
-	</p>
+  <p>
+    <%= f.label 'Имя' %> <br />
+    <%= f.text_field :visitor_firstname %>
+  </p>
 
-    <p>
-		<%= f.label :lastname %> <br />
-		<%= f.text_field :visitor_lastname %>
-	</p>
+  <p>
+    <%= f.label 'Фамилия' %> <br />
+    <%= f.text_field :visitor_lastname %>
+  </p>
 
-	<p>
-		<%= f.label :visit_date %>
- 		<%= f.datetime_field :visit_date, class: "visit_date" %>
-	</p>
+  <p>
+    <%= f.label 'Дата визита' %>
+    <%= f.datetime_field :visit_date, class: "visit_date" %>
+  </p>
 
-	<p>
-		<%= f.submit 'Create' %>
-	</p>
-
+  <p>
+    <%= f.submit 'Создать' %>
+  </p>
 <% end %>
