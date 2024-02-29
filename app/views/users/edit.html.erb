@@ -1,0 +1,20 @@
+<h1>Редактировать пользователя</h1>
+
+<%= form_with model: @user do |f| %>
+  <p>
+    <%= f.text_field :username, disabled: true %>
+  </p>
+
+  <p>
+     <%= f.text_field :email, disabled: true %>
+  </p>
+
+  <p>
+	Role: <br />
+	<%= f.collection_select :role_id, Role.all, :id, :rolename, {:prompt => ' Select role '} %>
+  </p>
+
+  <p>
+    <%= f.submit 'Edit' %>
+  </p>
+<% end %>

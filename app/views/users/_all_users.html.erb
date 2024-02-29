@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+  <p>
+    <%= user.id %> | 
+    <%= user.username %> | 
+    <%= user.email %> | 
+    <%= user.role.try(:rolename) %> | 
+  </p>
+<% end %>
