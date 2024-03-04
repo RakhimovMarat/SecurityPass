@@ -1,0 +1,39 @@
+#passes-container {
+    margin-top: 20px;
+  }
+  
+  .pass {
+    max-width: 300px; /* или любое другое значение, которое соответствует вашим требованиям */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+  }
+  
+  .pass p {
+    margin: 0;
+  }
+  
+  .pass .status {
+    font-weight: bold;
+    color: green; /* или любой другой цвет в зависимости от вашего дизайна */
+  }
+  .edit-button {
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #8a8c8d; /* Зеленый цвет, можно изменить на свой */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .edit-button:hover {
+    background-color: #b9c2c9; /* Цвет при наведении, можно изменить на свой */
+  }

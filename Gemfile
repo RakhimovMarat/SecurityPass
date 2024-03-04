@@ -16,6 +16,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'faker'
 gem 'devise'
+gem 'sassc'
 
 group :development, :test do
   gem 'database_cleaner'

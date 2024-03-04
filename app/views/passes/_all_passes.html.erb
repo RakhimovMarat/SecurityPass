@@ -1,12 +1,21 @@
-
-<div>
+<div id="passes-container">
   <% @passes.each do |pass| %>
-    <p>
-      <%= pass.id %> | 
-      <%= pass.visitor_firstname %> | 
-      <%= pass.visitor_lastname %> | 
-      <%= pass.visit_date.strftime("%B %d, %Y") %> | 
-      <%= pass.status %>
-    </p>
+    <div class="pass">
+      <p>
+        <span>Номер пропуска:</span> <%= pass.id %>
+      </p>
+      <p>
+        <span>Гость:</span> <%= pass.visitor_firstname %> <%= pass.visitor_lastname %>
+      </p>
+      <p>
+        <span>Дата посещения:</span> <%= pass.visit_date.strftime("%B %d, %Y") %>
+      </p>
+      <p>
+        <span class="status">Статус:</span> <%= pass.status %>
+      </p>
+      <p>
+        <%= button_to 'Edit', edit_pass_path(pass), method: :get, class: 'edit-button' %>
+      </p>
+    </div>
   <% end %>
 </div>
