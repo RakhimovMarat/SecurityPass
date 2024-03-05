@@ -38,10 +38,18 @@ class PassesController < ApplicationController
     end
   end
 
+  def change_status
+    @pass = Pass.find(params[:id])
+    if params[:status].present?
+      @pass.update!(status: params[:status])
+    end
+    redirect_to @pass, notice: 'Pass status was upadted'
+  end
+
   private
 
   def pass_params
-    params.require(:pass).permit(:visitor_firstname, :visitor_lastname, :visit_date, :user_id).merge(user_id: current_user.id)
+    params.require(:pass).permit(:visitor_firstname, :visitor_lastname, :visit_date, :user_id, :status).merge(user_id: current_user.id)
   end
 
   def find_pass
