@@ -3,8 +3,12 @@ class PassesController < ApplicationController
   before_action :find_pass, only: %i[show edit update]
 
   def index
-#    @passes = Pass.all
-    @passes = current_user.passes
+    # role_id == 4 - admin, role_id == 3 - guard
+    if current_user.role_id == 4 || current_user.role_id == 3
+      @passes = Pass.all.order(visit_date: :asc)
+    else
+      @passes = current_user.passes.order(visit_date: :asc)
+    end
   end
 
   def new
@@ -49,7 +53,14 @@ class PassesController < ApplicationController
   private
 
   def pass_params
-    params.require(:pass).permit(:visitor_firstname, :visitor_lastname, :visit_date, :user_id, :status).merge(user_id: current_user.id)
+    params.require(:pass).permit(:visitor_firstname,
+                                 :visitor_lastname,
+                                 :visit_date,
+                                 :user_id,
+                                 :status,
+                                 :visitor_company,
+                                 :identity_document)
+                                 .merge(user_id: current_user.id)
   end
 
   def find_pass

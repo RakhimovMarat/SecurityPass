@@ -8,15 +8,22 @@
         <span><b>Гость:</b></span> <%= pass.visitor_firstname %> <%= pass.visitor_lastname %>
       </p>
       <p>
+        <span><b>Номер документа:</b></span> <%= pass.identity_document %>
+      </p>
+      <p>
+        <span><b>Компания:</b></span> <%= pass.visitor_company %>
+      </p>
+      <p>
         <span><b>Дата посещения:</b></span> <%= pass.visit_date.strftime("%d.%m.%Y") %>
       </p>
       <p>
         <span class="status">Статус:</span> <%= pass.status %>
       </p>
       <p>
-        <%= link_to 'Редактировать', edit_pass_path(pass), method: :get %> 
-        <%= link_to('Согласовать', change_status_pass_path(pass, {status: :approved}), method: :patch, disabled: true) unless pass.status == 'approved' %> 
-        <%= link_to('Отклонить', change_status_pass_path(pass, {status: :rejected}), method: :patch, disabled: true) unless pass.status == 'rejected' %>
+        <span><b>Автор:</b></span> <%= pass.user.try(:username) %>
+      </p>
+      <p>
+        <%= link_to 'Подробнее', pass_path(pass), method: :get %>
       </p>
     </div>
   <% end %>
