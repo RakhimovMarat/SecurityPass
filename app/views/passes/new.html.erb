@@ -1,6 +1,6 @@
 <h3>Новый пропуск</h3>
 
-<%= form_with model: @pass, data: { controller: "flatpickr" } do |f| %>
+<%= form_with model: @pass, data: { controller: "flatpickr", turbo: false } do |f| %>
   <p>
     <%= f.label 'Имя' %> <br />
     <%= f.text_field :visitor_firstname %>

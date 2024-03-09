@@ -3,9 +3,11 @@ class PassesController < ApplicationController
   before_action :find_pass, only: %i[show edit update]
 
   def index
-    # role_id == 4 - admin, role_id == 3 - guard
-    if current_user.role_id == 4 || current_user.role_id == 3
+    # @q = Pass.ransack(params[:q])
+
+    if current_user.admin? || current_user.guard?
       @passes = Pass.all.order(visit_date: :asc)
+    #  @passes = @q.result(distinct: true)
     else
       @passes = current_user.passes.order(visit_date: :asc)
     end
@@ -22,7 +24,7 @@ class PassesController < ApplicationController
       redirect_to @pass
     else
       flash.now[:error] = 'Пожалуйста заполните все поля'
-      render action: 'new'
+      render :new
     end
   end
 
