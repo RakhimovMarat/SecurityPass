@@ -3,13 +3,13 @@ class PassesController < ApplicationController
   before_action :find_pass, only: %i[show edit update]
 
   def index
-    # @q = Pass.ransack(params[:q])
-
     if current_user.admin? || current_user.guard?
-      @passes = Pass.all.order(visit_date: :asc)
-    #  @passes = @q.result(distinct: true)
+      @q = Pass.ransack(params[:q])
+    #  @passes = @q.result.includes(:user).order(visit_date: :asc)
+      @pagy, @passes = pagy(@q.result.includes(:user).order(visit_date: :asc), items: 3)
     else
-      @passes = current_user.passes.order(visit_date: :asc)
+      @q = current_user.passes.ransack(params[:q])
+      @passes = @q.result.order(visit_date: :asc)
     end
   end
 

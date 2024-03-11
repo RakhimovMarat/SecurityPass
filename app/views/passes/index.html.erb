@@ -1,2 +1,4 @@
+<%= render 'search_form' if current_user  %>
 <%= render 'all_passes' if current_user  %>
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
 

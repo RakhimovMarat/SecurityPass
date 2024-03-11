@@ -17,6 +17,8 @@ gem "bootsnap", require: false
 gem 'faker'
 gem 'devise'
 gem 'sassc'
+gem 'ransack'
+gem 'pagy'
 
 group :development, :test do
   gem 'database_cleaner'
