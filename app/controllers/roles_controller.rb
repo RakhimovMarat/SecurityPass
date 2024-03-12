@@ -3,10 +3,12 @@ class RolesController < ApplicationController
 
   def index
     @roles = Role.all
+    authorize @roles
   end
 
   def new
     @role = Role.new
+    authorize @role
   end
 
   def create

@@ -19,6 +19,7 @@ gem 'devise'
 gem 'sassc'
 gem 'ransack'
 gem 'pagy'
+gem 'pundit'
 
 group :development, :test do
   gem 'database_cleaner'

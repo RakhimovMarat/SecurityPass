@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root to: 'passes#index'
 
   resources :users
+  resources :roles
 end
