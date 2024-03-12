@@ -9,7 +9,7 @@ class PassesController < ApplicationController
       @pagy, @passes = pagy(@q.result.includes(:user).order(visit_date: :asc), items: 3)
     else
       @q = current_user.passes.ransack(params[:q])
-      @passes = @q.result.order(visit_date: :asc)
+      @pagy, @passes = pagy(@q.result.order(visit_date: :asc), items: 3)
     end
   end
 
