@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :pass do
     visitor_firstname { Faker::Superhero.name }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PassesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_pass, only: %i[show edit update]
@@ -5,7 +7,7 @@ class PassesController < ApplicationController
   def index
     if current_user.admin? || current_user.guard?
       @q = Pass.ransack(params[:q])
-    #  @passes = @q.result.includes(:user).order(visit_date: :asc)
+      #  @passes = @q.result.includes(:user).order(visit_date: :asc)
       @pagy, @passes = pagy(@q.result.includes(:user).order(visit_date: :asc), items: 3)
     else
       @q = current_user.passes.ransack(params[:q])
@@ -28,11 +30,9 @@ class PassesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @pass.update(pass_params)
@@ -46,9 +46,7 @@ class PassesController < ApplicationController
 
   def change_status
     @pass = Pass.find(params[:id])
-    if params[:status].present?
-      @pass.update!(status: params[:status])
-    end
+    @pass.update!(status: params[:status]) if params[:status].present?
     redirect_to @pass, notice: 'Pass status was upadted'
   end
 
@@ -62,7 +60,7 @@ class PassesController < ApplicationController
                                  :status,
                                  :visitor_company,
                                  :identity_document)
-                                 .merge(user_id: current_user.id)
+          .merge(user_id: current_user.id)
   end
 
   def find_pass

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PassesController, type: :controller do
-
   let!(:user) { create :user }
 
   describe 'GET #index' do
@@ -34,7 +35,6 @@ RSpec.describe PassesController, type: :controller do
   end
 
   describe 'POST #create' do
-
     before do
       sign_in(user)
     end
@@ -66,7 +66,6 @@ RSpec.describe PassesController, type: :controller do
   end
 
   describe 'PUT #update' do
-
     before do
       sign_in(user)
     end

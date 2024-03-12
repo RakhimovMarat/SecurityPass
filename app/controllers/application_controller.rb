@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -16,8 +18,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:alert] = "У Вас нет доступа."
+    flash[:alert] = 'У Вас нет доступа.'
     redirect_back(fallback_location: root_path)
   end
-
 end

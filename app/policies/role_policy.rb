@@ -1,11 +1,12 @@
-class RolePolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class RolePolicy < ApplicationPolicy
   def index?
-    user.admin? if user
+    user&.admin?
   end
 
   def new?
-    user.admin? if user
+    user&.admin?
   end
 
   class Scope < Scope

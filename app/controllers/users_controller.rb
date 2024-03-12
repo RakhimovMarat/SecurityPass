@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user, only: %i[edit update]
@@ -6,8 +8,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
