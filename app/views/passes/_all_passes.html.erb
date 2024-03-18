@@ -1,30 +1,14 @@
-<div id="passes-container">
+<div>
   <% @passes.each do |pass| %>
-    <div class="pass">
-      <p>
-        <span><b>Номер пропуска:</b></span> <%= pass.id %>
-      </p>
-      <p>
-        <span><b>Гость:</b></span> <%= pass.visitor_firstname %> <%= pass.visitor_lastname %>
-      </p>
-      <p>
-        <span><b>Номер документа:</b></span> <%= pass.identity_document %>
-      </p>
-      <p>
-        <span><b>Компания:</b></span> <%= pass.visitor_company %>
-      </p>
-      <p>
-        <span><b>Дата посещения:</b></span> <%= pass.visit_date.strftime("%d.%m.%Y") %>
-      </p>
-      <p>
-        <span class="status">Статус:</span> <%= pass.status %>
-      </p>
-      <p>
-        <span><b>Автор:</b></span> <%= pass.user.try(:username) %>
-      </p>
-      <p>
-        <%= link_to 'Подробнее', pass_path(pass), method: :get %>
-      </p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h6 class="card-text">Номер пропуска: <%= pass.id %></h6>
+        <h6 class="card-text"><%= pass.visitor_firstname %> <%= pass.visitor_lastname %></h6>
+        <h6 class="card-text"><%= pass.visit_date.strftime("%d.%m.%Y") %></h6>
+        <h6 class="card-text">Статус: <%= pass.status %></h6>
+      <%= link_to 'Подробнее', pass_path(pass), method: :get %>
+      </div>
     </div>
+    <br />
   <% end %>
 </div>

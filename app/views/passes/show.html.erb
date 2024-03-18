@@ -9,6 +9,8 @@
 <p>Visit date: <%= @pass.visit_date.strftime("%B %d, %Y") %></p>
 
 <p>Status: <%= @pass.status %></p>
+
+<h6 class="card-text">Автор: <%= @pass.user.try(:username) %></h6>
       
 <p>
   <%= link_to 'Редактировать', edit_pass_path(@pass), method: :get %> 

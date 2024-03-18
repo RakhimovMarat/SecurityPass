@@ -1,9 +1,0 @@
-<ul class="header">
-  <% if user_signed_in? %>
-    <li><%= link_to "Главная", root_path, class: "header-link" %></li>
-    <li><%= link_to "Новый пропуск", new_pass_path, class: "header-link" %></li>
-    <li><%= current_user.username %></li>
-    <li><%= button_to "Выйти", destroy_user_session_path, :method => :delete, class: "logout-button" %></li>
-  <% end %>
-</ul>
- 
