@@ -1,0 +1,21 @@
+h4 Пропуск номер #{@pass.id}
+br
+p.card-text
+  | Имя: 
+  = @pass.visitor_firstname
+p.card-text
+  | Фамилия: 
+  = @pass.visitor_lastname
+p.card-text
+  | Дата визита: 
+  = @pass.visit_date.strftime("%B %d, %Y")
+p.card-text
+  | Статус: 
+  = @pass.status
+h6.card-text
+  | Автор: 
+  = @pass.user.try(:username)
+p
+  = link_to 'Редактировать', edit_pass_path(@pass), class: "btn btn-primary", method: :get
+  = link_to('Согласовать', change_status_pass_path(@pass, {status: :approved}), class: "btn btn-success", method: :patch, disabled: @pass.status == 'approved', style: (@pass.status == 'approved' ? 'pointer-events: none; opacity: 0.5;' : ''))
+  = link_to('Отклонить', change_status_pass_path(@pass, {status: :rejected}), class: "btn btn-danger", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))

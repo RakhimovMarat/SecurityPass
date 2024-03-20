@@ -1,0 +1,9 @@
+= search_form_for @q, html: { class: "form-inline" } do |f|
+  .form-group.row.mb-3
+    .col-md-4
+      = f.search_field :visitor_lastname_cont, class: "form-control mr-sm-2", placeholder: "Введите фамилию"
+    .col-md-2
+      = button_tag(type: "submit", class: "btn btn-primary") do
+        |  Поиск 
+
+

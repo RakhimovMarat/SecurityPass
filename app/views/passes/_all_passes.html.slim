@@ -1,0 +1,17 @@
+div
+  - @passes.each do |pass|
+    .card[style="width: 26rem;"]
+      .card-body
+        h6.card-text
+          | Номер пропуска: 
+          = pass.id
+        h6.card-text
+          = pass.visitor_firstname 
+          = pass.visitor_lastname
+        h6.card-text
+          = pass.visit_date.strftime("%d.%m.%Y")
+        h6.card-text
+          | Статус: 
+          = pass.status
+        = link_to 'Подробнее', pass_path(pass), class: "btn btn-primary", method: :get
+    br

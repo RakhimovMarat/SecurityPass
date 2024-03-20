@@ -1,8 +1,0 @@
-<%= search_form_for @q, html: { class: "form-inline" } do |f| %>
-  <div class="form-group">
-    <%= f.search_field :visitor_lastname_cont, class: "form-control mr-sm-2", placeholder: "Введите фамилию" %>
-  </div>
-  <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-    Поиск <!-- Замените на вашу иконку, если нужно -->
-  <% end %>
-<% end %>
