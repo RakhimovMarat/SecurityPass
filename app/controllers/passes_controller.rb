@@ -7,7 +7,6 @@ class PassesController < ApplicationController
   def index
     if current_user.admin? || current_user.guard?
       @q = Pass.ransack(params[:q])
-      #  @passes = @q.result.includes(:user).order(visit_date: :asc)
       @pagy, @passes = pagy(@q.result.includes(:user).order(visit_date: :asc), items: 3)
     else
       @q = current_user.passes.ransack(params[:q])
@@ -47,7 +46,8 @@ class PassesController < ApplicationController
   def change_status
     @pass = Pass.find(params[:id])
     @pass.update!(status: params[:status]) if params[:status].present?
-    redirect_to @pass, notice: 'Статус изменен'
+    flash[:success] = 'Статус изменен'
+    redirect_to @pass
   end
 
   private

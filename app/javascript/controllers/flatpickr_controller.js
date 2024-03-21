@@ -8,8 +8,9 @@ export default class extends Controller {
 
     flatpickr(".visit_date", {
       altInput: true,
+      minDate: 'today',
       "locale": {
-        "firstDayOfWeek": 1 // start week on Monday
+        "firstDayOfWeek": 1
       }
     })
   }
