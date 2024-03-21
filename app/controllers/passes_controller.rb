@@ -47,7 +47,7 @@ class PassesController < ApplicationController
   def change_status
     @pass = Pass.find(params[:id])
     @pass.update!(status: params[:status]) if params[:status].present?
-    redirect_to @pass, notice: 'Pass status was upadted'
+    redirect_to @pass, notice: 'Статус изменен'
   end
 
   private

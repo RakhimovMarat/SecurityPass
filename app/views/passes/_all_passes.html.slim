@@ -12,6 +12,6 @@ div
           = pass.visit_date.strftime("%d.%m.%Y")
         h6.card-text
           | Статус: 
-          = pass.status
+          = pass.status_i18n
         = link_to 'Подробнее', pass_path(pass), class: "btn btn-primary", method: :get
     br

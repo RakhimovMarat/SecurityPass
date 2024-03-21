@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    attributes:
+      pass:
+        status:
+          created: "Создан"
+          approved: "Подтвержден"
+          rejected: "Отклонен"
+          finished: "Завершен"
+          canceled: "Отменен"

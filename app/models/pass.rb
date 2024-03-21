@@ -8,7 +8,11 @@ class Pass < ApplicationRecord
 
   belongs_to :user
 
-  enum :status, { created: 0, approved: 1, rejected: 2, finished: 3, canceleld: 4 }, default: :created
+  enum :status, { created: 0, approved: 1, rejected: 2, finished: 3, canceled: 4 }, default: :created
+
+  def status_i18n
+    I18n.t("activerecord.attributes.pass.status.#{status}")
+  end
 
   def self.ransackable_associations(_auth_object = nil)
     ['user']

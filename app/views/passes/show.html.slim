@@ -1,5 +1,6 @@
 h4 Пропуск номер #{@pass.id}
 br
+
 p.card-text
   | Имя: 
   = @pass.visitor_firstname
@@ -17,5 +18,5 @@ h6.card-text
   = @pass.user.try(:username)
 p
   = link_to 'Редактировать', edit_pass_path(@pass), class: "btn btn-primary", method: :get
-  = link_to('Согласовать', change_status_pass_path(@pass, {status: :approved}), class: "btn btn-success", method: :patch, disabled: @pass.status == 'approved', style: (@pass.status == 'approved' ? 'pointer-events: none; opacity: 0.5;' : ''))
-  = link_to('Отклонить', change_status_pass_path(@pass, {status: :rejected}), class: "btn btn-danger", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
+  = link_to('Согласовать', change_status_pass_path(@pass, {status: :approved}), class: "btn btn-success", method: :patch, disabled: @pass.status == 'подтвержден', style: (@pass.status == 'подтвержден' ? 'pointer-events: none; opacity: 0.5;' : ''))
+  = link_to('Отклонить', change_status_pass_path(@pass, {status: :rejected}), class: "btn btn-danger", method: :patch, disabled: @pass.status == 'отклонен', style: (@pass.status == 'отклонен' ? 'pointer-events: none; opacity: 0.5;' : ''))
