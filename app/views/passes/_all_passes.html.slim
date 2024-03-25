@@ -6,8 +6,7 @@ div
           | Номер пропуска: 
           = pass.id
         h6.card-text
-          = pass.visitor_firstname 
-          = pass.visitor_lastname
+          = "#{pass.visitor_firstname} #{pass.visitor_lastname}"
         h6.card-text
           = pass.visit_date.strftime("%d.%m.%Y")
         h6.card-text
