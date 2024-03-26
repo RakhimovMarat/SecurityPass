@@ -2,12 +2,14 @@
 
 Rails.application.routes.draw do
   devise_for :users
+
   resources :passes do
-    member do
-      patch :change_status
-    end
+    get :change_status, on: :member
+    get :only_created,  on: :collection
   end
-  get '/passes/:id/change_status', to: 'passes#change_status', as: 'change_pass_status'
+
+  # get '/passes/:id/change_status', to: 'passes#change_status', as: 'change_pass_status'
+
   root to: 'passes#index'
 
   resources :users

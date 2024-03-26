@@ -50,6 +50,18 @@ class PassesController < ApplicationController
     redirect_to @pass
   end
 
+  def only_created
+    if current_user.admin? || current_user.guard?
+      @q = Pass.ransack(params[:q])
+      @pagy, @passes = pagy(@q.result.where(status: :created).includes(:user).order(visit_date: :asc), items: 3)
+      render :index
+    else
+      @q = current_user.passes.ransack(params[:q])
+      @pagy, @passes = pagy(@q.result.where(status: :created).order(visit_date: :asc), items: 3)
+      render :index
+    end
+  end
+
   private
 
   def pass_params
