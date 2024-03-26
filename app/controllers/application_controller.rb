@@ -4,8 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   include Pagy::Backend
+
   include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  def render_404
+    render file: 'public/404.html', status: :not_found
+  end
 
   protected
 

@@ -76,6 +76,7 @@ class PassesController < ApplicationController
   end
 
   def find_pass
-    @pass = Pass.find(params[:id])
+    @pass = Pass.find_by(id: params[:id])
+    render_404 unless @pass
   end
 end
