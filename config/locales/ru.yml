@@ -4,7 +4,7 @@ ru:
       pass:
         status:
           created: "Создан"
-          approved: "Подтвержден"
+          approved: "Согласован"
           rejected: "Отклонен"
           finished: "Завершен"
           canceled: "Отменен"

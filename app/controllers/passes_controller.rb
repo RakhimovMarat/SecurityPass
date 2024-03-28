@@ -31,7 +31,9 @@ class PassesController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    authorize @pass
+  end
 
   def update
     if @pass.update(pass_params)
@@ -47,6 +49,7 @@ class PassesController < ApplicationController
     @pass = Pass.find(params[:id])
     @pass.update!(status: params[:status]) if params[:status].present?
     flash[:success] = 'Статус изменен'
+    authorize @pass
     redirect_to @pass
   end
 

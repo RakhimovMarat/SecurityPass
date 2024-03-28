@@ -16,9 +16,13 @@ p.card-text
 p.card-text
   | Автор: 
   = @pass.user.try(:username)
-p
-  = link_to 'Редактировать', edit_pass_path(@pass), class: "btn btn-primary", method: :get
-  | &nbsp;&nbsp;&nbsp;
-  = link_to('Согласовать', change_status_pass_path(@pass, {status: :approved}), class: "btn btn-success", method: :patch, disabled: @pass.status == 'approved', style: (@pass.status == 'approved' ? 'pointer-events: none; opacity: 0.5;' : ''))
-  | &nbsp;&nbsp;&nbsp;
-  = link_to('Отклонить', change_status_pass_path(@pass, {status: :rejected}), class: "btn btn-danger", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
+- unless @pass.status == 'finished'  
+  - if policy(:pass).change_status?
+    p
+      = link_to 'Редактировать', edit_pass_path(@pass), class: "btn btn-primary", method: :get
+      | &nbsp;&nbsp;&nbsp;
+      = link_to('Согласовать', change_status_pass_path(@pass, {status: :approved}), class: "btn btn-success", method: :patch, disabled: @pass.status == 'approved', style: (@pass.status == 'approved' ? 'pointer-events: none; opacity: 0.5;' : ''))
+      | &nbsp;&nbsp;&nbsp;
+      = link_to('Отклонить', change_status_pass_path(@pass, {status: :rejected}), class: "btn btn-danger", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
+      | &nbsp;&nbsp;&nbsp;
+      = link_to('Подтвердить', change_status_pass_path(@pass, {status: :finished}), class: "btn btn-warning", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
