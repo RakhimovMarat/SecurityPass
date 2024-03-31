@@ -27,6 +27,8 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem "slim-rails"
+gem 'sidekiq'
+gem "rufus-scheduler"
 
 group :development, :test do
   gem 'database_cleaner'
