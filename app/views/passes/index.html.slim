@@ -1,9 +1,9 @@
 h4 Все пропуски
 br
-= render 'search_form' if current_user
-br
 = link_to 'Созданные', only_created_passes_path, class: "btn btn-primary", method: :get
 br
+br
+= render 'search_form' if current_user
 br
 = render 'all_passes' if current_user
 == pagy_bootstrap_nav(@pagy) if @pagy.pages > 1
