@@ -1,6 +1,6 @@
 - if user_signed_in? 
   nav.navbar.navbar-expand-lg.bg-light
-    .container-fluid
+    .container
       a.navbar-brand[href=root_path]
         | Центр пропусков
       button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
@@ -15,16 +15,12 @@
               | Link
         ul.navbar-nav.navbar-right
           li.nav-item.dropdown
-            a.nav-link.dropdown-toggle[href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"] = current_user.username
+            a.nav-link.dropdown-toggle[href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"] 
+              = current_user.username
             ul.dropdown-menu
               li
-                a.dropdown-item[href=users_path]
-                  | Личный кабинет
-              li
-                a.dropdown-item[href="#"]
-                  | Выйти
+                = link_to "Профиль", user_path(current_user), class: "btn btn-link dropdown-item"
               li
                 hr.dropdown-divider
               li
-                a.dropdown-item[href="#"]
-                  | Something else here
+                = button_to "Выйти", destroy_user_session_path, method: :delete, class: "btn btn-link dropdown-item"

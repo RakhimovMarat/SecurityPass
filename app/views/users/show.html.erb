@@ -1,0 +1,7 @@
+
+  <p>
+    <%= @user.id %> | 
+    <%= @user.username %> | 
+    <%= @user.email %> | 
+    <%= @user.role.try(:rolename) %> | 
+  </p>

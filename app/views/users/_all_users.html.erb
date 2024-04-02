@@ -1,8 +1,23 @@
-<% @users.each do |user| %>
-  <p>
-    <%= user.id %> | 
-    <%= user.username %> | 
-    <%= user.email %> | 
-    <%= user.role.try(:rolename) %> | 
-  </p>
-<% end %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role.try(:rolename) %></td>
+        <td><%= button_to 'Edit', edit_user_path(user), class: "btn btn-primary btn-sm", method: :get %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
