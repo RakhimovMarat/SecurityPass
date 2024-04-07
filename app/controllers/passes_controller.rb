@@ -48,6 +48,8 @@ class PassesController < ApplicationController
   def change_status
     @pass = Pass.find(params[:id])
     @pass.update!(status: params[:status]) if params[:status].present?
+    user = @pass.user
+    PassMailer.pass_status_changed(user, @pass).deliver_now
     flash[:success] = 'Статус изменен'
     authorize @pass
     redirect_to @pass
