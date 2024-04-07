@@ -1,9 +1,9 @@
-<h1>Статус вашего пропуска <%= @pass.id %> </h1>
+<h3>Статус вашего пропуска <%= @pass.id %> </h3>
 
 <p>
   <% if @pass.status == 'approved' %> 
-    Пропуск номер <%= @pass.id %> согласован
+    <span style="color: green;"><b>Пропуск номер <%= @pass.id %> согласован</b></span>
   <% else %>
-    Пропуск номер <%= @pass.id %> не согласован
+    <span style="color: red;"><b>Пропуск номер <%= @pass.id %> не согласован</b></span>
   <% end %>
 </p>
