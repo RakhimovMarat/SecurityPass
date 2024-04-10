@@ -19,10 +19,10 @@ p.card-text
 - unless @pass.status == 'finished'  
   - if policy(:pass).change_status?
     p
-      = link_to 'Редактировать', edit_pass_path(@pass), class: "btn btn-primary", method: :get
+      = link_to 'Редактировать', edit_pass_path(@pass), class: "btn btn-outline-primary btn-sm", method: :get
       | &nbsp;&nbsp;&nbsp;
-      = link_to('Согласовать', change_status_pass_path(@pass, {status: :approved}), class: "btn btn-success", method: :patch, disabled: @pass.status == 'approved', style: (@pass.status == 'approved' ? 'pointer-events: none; opacity: 0.5;' : ''))
+      = link_to('Согласовать', change_status_pass_path(@pass, {status: :approved}), class: "btn btn-outline-success btn-sm", method: :patch, disabled: @pass.status == 'approved', style: (@pass.status == 'approved' ? 'pointer-events: none; opacity: 0.5;' : ''))
       | &nbsp;&nbsp;&nbsp;
-      = link_to('Отклонить', change_status_pass_path(@pass, {status: :rejected}), class: "btn btn-danger", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
+      = link_to('Отклонить', change_status_pass_path(@pass, {status: :rejected}), class: "btn btn-outline-danger btn-sm", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
       | &nbsp;&nbsp;&nbsp;
-      = link_to('Подтвердить', change_status_pass_path(@pass, {status: :finished}), class: "btn btn-warning", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
+      = link_to('Подтвердить', change_status_pass_path(@pass, {status: :finished}), class: "btn btn-outline-warning btn-sm", method: :patch, disabled: @pass.status == 'rejected', style: (@pass.status == 'rejected' ? 'pointer-events: none; opacity: 0.5;' : ''))
